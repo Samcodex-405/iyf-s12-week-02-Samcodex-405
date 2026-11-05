@@ -1,63 +1,490 @@
+/* 1. COLOUR VARIABLES */
 
-/* =========================================
-   TASK 3.1: CSS SETUP & BASIC STYLING
-========================================= */
+:root {
+    --pink-light: #FCE7EF;
+    --pink: #E9B8CE;
+    --pink-dark: #D58EAD;
 
+    --blue-light: #DCEBFA;
+    --blue: #A9C9E8;
+    --blue-dark: #526B87;
 
-/* 1. RESET DEFAULT STYLES */
+    --cream: #FFF9F6;
+    --white: #FFFFFF;
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+    --text-dark: #46566B;
+    --text-light: #718096;
+
+    --border: #EADCE5;
+
+    --shadow: 0 6px 20px rgba(82, 107, 135, 0.09);
+
+    --radius: 14px;
 }
 
 
-/* 2. BASE TYPOGRAPHY */
+/* 2. GENERAL PAGE STYLING */
 
 body {
-    font-family: 'Poppins', sans-serif;
-    font-size: 16px;
-    line-height: 1.6;
-    color: #333333;
-    background-color: #ffffff;
+    font-family: "Roboto", Arial, sans-serif;
+    background-color: var(--cream);
+    color: var(--text-dark);
+    line-height: 1.7;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    color: var(--blue-dark);
+    line-height: 1.3;
+}
+
+p {
+    color: var(--text-dark);
+}
+
+a {
+    color: var(--blue-dark);
+    transition: color 0.25s ease;
+}
+
+a:hover {
+    color: var(--pink-dark);
 }
 
 
-/* 3. HEADING STYLES */
+/* 3. HEADERS */
 
-h1 {
-    font-size: 40px;
-    font-weight: 700;
-    margin-bottom: 20px;
+header {
+    border-bottom: 2px solid var(--pink);
+    padding-bottom: 24px;
 }
 
-h2 {
-    font-size: 32px;
+header h1 {
+    color: var(--blue-dark);
+}
+
+header p {
+    color: var(--text-light);
+}
+
+
+/* 4. NAVIGATION */
+
+.Nav li a {
+    background-color: var(--pink-light);
+    color: var(--blue-dark);
+
+    border: 1.5px solid var(--pink);
+    border-radius: 30px;
+
+    padding: 9px 18px;
+
     font-weight: 600;
+    text-decoration: none;
+
+    transition: all 0.25s ease;
+}
+
+.Nav li a:hover {
+    background-color: var(--blue-light);
+    color: var(--blue-dark);
+
+    border-color: var(--blue);
+
+    transform: translateY(-2px);
+}
+
+.Nav li a[aria-current="page"] {
+    background-color: var(--blue-light);
+    border-color: var(--blue);
+}
+
+
+/* 5. MAIN CONTENT */
+
+main {
+    color: var(--text-dark);
+}
+
+section {
+    margin-bottom: 48px;
+}
+
+section h2 {
+    color: var(--blue-dark);
     margin-bottom: 18px;
 }
 
-h3 {
-    font-size: 28px;
+
+/* 6. CARDS */
+
+.cards-page,
+.card-component-page {
+    background-color: var(--cream);
+    color: var(--text-dark);
+}
+
+.cards-page .card,
+.card-component-page .project-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.cards-page .card h2,
+.card-component-page .card-content h2 {
+    color: var(--blue-dark);
+}
+
+.cards-page .card a,
+.card-component-page .card-button {
+    background-color: var(--blue-dark);
+    color: var(--white);
+    border-color: var(--blue-dark);
+    border-radius: 25px;
+}
+
+.cards-page .card a:hover,
+.card-component-page .card-button:hover {
+    background-color: var(--pink);
+    color: var(--blue-dark);
+    border-color: var(--pink);
+}
+
+
+/* 7. PROJECTS PAGE */
+
+.projects-page {
+    background-color: var(--cream);
+}
+
+.projects-page .project-card {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.projects-page .project-card h2,
+.projects-page .project-card h3 {
+    color: var(--blue-dark);
+}
+
+.projects-page .project-tags span {
+    background-color: var(--pink-light);
+    color: var(--blue-dark);
+    border-radius: 20px;
+}
+
+.projects-page .project-card a {
+    background-color: var(--blue-dark);
+    color: var(--white);
+    border-radius: 25px;
+}
+
+.projects-page .project-card a:hover {
+    background-color: var(--pink);
+    color: var(--blue-dark);
+}
+
+
+/* 8. PHOTO GALLERY */
+
+.gallery-page {
+    background-color: var(--cream);
+    color: var(--text-dark);
+}
+
+.gallery-page header {
+    border-bottom: 2px solid var(--pink);
+}
+
+.gallery-page h1 {
+    color: var(--blue-dark);
+}
+
+.gallery-page .gallery img {
+    border: 3px solid var(--white);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease;
+}
+
+.gallery-page .gallery img:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 24px rgba(82, 107, 135, 0.16);
+}
+
+
+/* 9. MAGAZINE LAYOUT */
+
+.magazine-page {
+    background-color: var(--cream);
+}
+
+.magazine-page .magazine-header,
+.magazine-page .magazine-footer {
+    background-color: var(--blue-dark);
+    color: var(--white);
+}
+
+.magazine-page .magazine-header h1,
+.magazine-page .magazine-footer h2 {
+    color: var(--white);
+}
+
+.magazine-page .magazine-sidebar,
+.magazine-page .magazine-main article {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+
+/* 10. FORMS AND INPUTS */
+
+textarea,
+select,
+input {
+    font: inherit;
+    color: var(--text-dark);
+}
+
+textarea,
+select,
+input:not([type="checkbox"]):not([type="radio"]) {
+    background-color: var(--white);
+    border: 1.5px solid var(--border);
+    border-radius: 8px;
+    padding: 10px 12px;
+}
+
+textarea:focus,
+select:focus,
+input:focus {
+    outline: none;
+    border-color: var(--pink-dark);
+    box-shadow: 0 0 0 3px var(--pink-light);
+}
+
+fieldset {
+    border: 1px solid var(--pink);
+    border-radius: var(--radius);
+}
+
+legend {
+    color: var(--blue-dark);
+    font-weight: 700;
+}
+
+
+/* 11. BUTTONS */
+
+button,
+.btn,
+section button {
+    background-color: var(--blue-dark);
+    color: var(--white);
+    border: 1.5px solid var(--blue-dark);
+    border-radius: 25px;
+
+    padding: 10px 20px;
+
+    font: inherit;
     font-weight: 600;
-    margin-bottom: 16px;
+
+    cursor: pointer;
+
+    transition: all 0.25s ease;
 }
 
-h4 {
-    font-size: 24px;
-    font-weight: 500;
-    margin-bottom: 14px;
+button:hover,
+.btn:hover,
+section button:hover {
+    background-color: var(--pink);
+    color: var(--blue-dark);
+    border-color: var(--pink);
+
+    transform: translateY(-2px);
 }
 
-h5 {
-    font-size: 20px;
-    font-weight: 500;
-    margin-bottom: 12px;
+
+/* 12. FOOTERS */
+
+footer {
+    border-top: 2px solid var(--pink);
+    color: var(--text-dark);
 }
 
-h6 {
-    font-size: 16px;
-    font-weight: 500;
-    margin-bottom: 10px;
+footer p {
+    color: var(--text-light);
+}
+
+.footer-design-page {
+    background-color: var(--cream);
+}
+
+.footer-design-page .site-footer {
+    background-color: var(--blue-dark);
+    border-top: 4px solid var(--pink);
+    color: var(--white);
+}
+
+.footer-design-page .footer-column h2 {
+    color: var(--pink-light);
+}
+
+.footer-design-page .footer-column a:hover {
+    color: var(--pink);
+}
+
+
+/* 13. HERO SECTION */
+
+.hero-section-page .hero-more {
+    background-color: var(--pink-light);
+    color: var(--blue-dark);
+}
+
+.hero-section-page .hero-more h2 {
+    color: var(--blue-dark);
+}
+
+.hero-section-page .hero-eyebrow,
+.hero-section-page .hero-highlight {
+    color: var(--pink);
+}
+
+.hero-section-page .hero-button {
+    background-color: var(--pink);
+    border-color: var(--pink);
+    color: var(--blue-dark);
+    border-radius: 30px;
+}
+
+.hero-section-page .hero-button:hover {
+    background-color: var(--blue-light);
+    border-color: var(--blue-light);
+    color: var(--blue-dark);
+}
+
+
+/* 14. LESSON EXERCISES */
+
+.lesson3-page {
+    background-color: var(--cream);
+    color: var(--text-dark);
+}
+
+.lesson3-page .lesson3-title,
+.lesson3-page .lesson3-section-title {
+    color: var(--blue-dark);
+}
+
+.lesson3-page .lesson3-code-fieldset {
+    background-color: var(--white);
+    border-color: var(--pink);
+}
+
+.lesson3-page .lesson3-code-fieldset legend {
+    color: var(--blue-dark);
+}
+
+.lesson3-page .lesson3-visual-margin {
+    background-color: var(--pink-light);
+}
+
+.lesson3-page .lesson3-visual-padding {
+    background-color: var(--blue-light);
+}
+
+.lesson3-page .lesson3-typography-demo {
+    background-color: var(--white);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+
+/* 15. CONTACT PAGE */
+
+.contact-page main > section {
+    background-color: var(--white);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+}
+
+.contact-page main h2 {
+    color: var(--blue-dark);
+}
+
+.contact-page input,
+.contact-page textarea,
+.contact-page select {
+    border-color: var(--border);
+    border-radius: 8px;
+    background-color: var(--cream);
+    color: var(--text-dark);
+}
+
+.contact-page input:focus,
+.contact-page textarea:focus,
+.contact-page select:focus {
+    border-color: var(--pink-dark);
+    box-shadow: 0 0 0 3px var(--pink-light);
+}
+
+
+/* 16. ACCESSIBILITY AND INTERACTION */
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 3px solid var(--pink-dark);
+    outline-offset: 3px;
+}
+
+
+/* 17. RESPONSIVE REFINEMENTS */
+
+@media (max-width: 600px) {
+
+    body {
+        line-height: 1.65;
+    }
+
+    h1 {
+        font-size: 2rem;
+    }
+
+    .Nav li a {
+        padding: 8px 12px;
+        font-size: 0.9rem;
+    }
+
+    main {
+        width: 100%;
+    }
+}
+
+
+/* 18. REDUCED MOTION */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation: none !important;
+        transition: none !important;
+    }
 }
